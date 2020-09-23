@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Валидация форм</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <fieldset>
+        <h3>Заполните поля формы</h3>
+        Имя: <input id="name" name="name" type="text" placeholder="Панкратова Маргарита"> <span id="messageName"></span><br>
+        E-mail: <input id="email" name="email" type="text" placeholder="margo@mail.ru"> <span id="messageEmail"></span><br>
+        Телефон: <input id="phone" name="phone" type="text" placeholder="+7(000)000-000"> <span id="messagePhone"></span><br>
+        <input name="button" type="submit" value="Проверить" onclick="validEmail(); validPhone(); validName()">
+    </fieldset>
+
+    <script>
+
+        function validName() {
+            let regExp = /^[a-zA-Zа-яА-Я]+$/;
+            let userName = document.getElementById("name").value;
+            let valid = regExp.test(userName);
+            if (valid) {
+                output = 'Имя введено правильно';
+                document.getElementById("name").classList.remove("error");
+            } else { 
+                output = 'Имя введено неправильно';
+                document.getElementById("name").classList.add("error");
+            }
+            document.getElementById("messageName").innerHTML = output;
+            return valid;
+        }
+
+        function validEmail() {
+            let regExp = /^[\w-\.]+@[\w]+\.[a-z]{2}$/i;
+            let userEmail = document.getElementById("email").value;
+            let valid = regExp.test(userEmail);
+            if (valid) {
+                output = 'Адрес электронной почты введен правильно';
+            } else {
+                output = 'Адрес электронной почты введен неправильно';
+                document.getElementById("email").classList.add("error");
+            }
+            document.getElementById("messageEmail").innerHTML = output;
+            return valid;
+        }
+
+        function validPhone() {
+            let regExp = /^\+7{1}\(\d{3}\)\d{3}\-\d{4}$/;
+            let userPhone = document.getElementById("phone").value;
+            let valid = regExp.test(userPhone);
+            if (valid) {
+                output = 'Номер введен правильно';
+            } else { 
+                output = 'Номер введен неправильно';
+                document.getElementById("phone").classList.add("error");
+            }
+            document.getElementById("messagePhone").innerHTML = output;
+            return valid;
+        }
+
+    </script>
+</body>
+
+</html>
