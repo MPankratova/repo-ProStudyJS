@@ -63,6 +63,7 @@ const app = new Vue({
   },
 
   created() {
+    this.filteredProducts = this.products;
     this.getJson(`${API + this.catalogUrl}`)
         .then(data => {
           for(let el of data){
