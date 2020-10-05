@@ -1,17 +1,13 @@
-const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
+const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses123';
 
 const app = new Vue({
     el: '#app',
-    data: {
-        userSearch: '',
-    },
     methods: {
         getJson(url){
             return fetch(url)
                 .then(result => result.json())
                 .catch(error => {
-                    // активируем ошибку
-                    console.log(error);
+                    this.$refs.error.setError(error);
                 })
         },
     },
