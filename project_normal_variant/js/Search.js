@@ -1,0 +1,15 @@
+Vue.component('searchform', {
+    data() {
+        return {
+            value: ''
+        }
+    },
+    template: `
+            <form action="#" class="search-form" @submit.prevent="$parent.$refs.products.filter(value)">
+                <input type="text" class="search-field" v-model="value"></input>
+                <button class="btn-search" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>      
+    `
+});
