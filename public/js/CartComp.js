@@ -1,11 +1,11 @@
 Vue.component('cart', {
     data(){
-      return {
-          imgCart: 'https://placehold.it/50x100',
-          cartUrl: '/getBasket.json',
-          cartItems: [],
-          showCart: false,
-      }
+        return {
+            imgCart: 'https://placehold.it/50x100',
+            cartUrl: '/getBasket.json',
+            cartItems: [],
+            showCart: false,
+        }
     },
     methods: {
 
@@ -17,22 +17,29 @@ Vue.component('cart', {
             } else {
                 let prod = Object.assign({quantity: 1}, product);
                 this.$parent.postJson('/api/cart', prod)
-                  .then(data => {
-                      if (data.result === 1) {
-                          this.cartItems.push(prod);
-                      }
-                  });
+                    .then(data => {
+                        if (data.result === 1) {
+                            this.cartItems.push(prod);
+                        }
+                    });
             }
         },
-        delete(product) {
-            let find = this.cartItems.find(el => el.id_product === product.id_product);
-                if(find) {
-                    if(find.quantity > 1){
-                        find.quantity--;
-                    } else {
-                        this.cartItems.splice(this.cartItems.indexOf(product), 1)
-                    }
-                }
+        remove(item) {
+            if (item.quantity > 1) {
+                this.$parent.putJson(`/api/cart/${item.id_product}`, {quantity: -1})
+                    .then(data => {
+                        if (data.result === 1) {
+                            item.quantity--;
+                        }
+                    });
+            } else {
+                this.$parent.deleteJson(`/api/cart/${item.id_product}`)
+                    .then(data => {
+                        if (data.result === 1) {
+                            this.cartItems.splice(this.cartItems.indexOf(item), 1);
+                        }
+                    });
+            }
         },
     },
     mounted(){
@@ -73,7 +80,7 @@ Vue.component('cart-item', {
                 </div>
                 <div class="right-block">
                     <p class="product-price">{{cartItem.quantity*cartItem.price}}₽</p>
-                    <button class="del-btn" @click="$emit('delete', cartItem)">&times;</button>
+                    <button class="del-btn" @click="$emit('remove', cartItem)">&times;</button>
                 </div>
             </div>
     `
