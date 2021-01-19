@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/styleProductGrid.css">
+</head>
+
+<body>
+    <div id="app">
+        <header class="header">
+        <div class="container headerInside">
+            <div class="logo">BRAN<span>D</span></div>
+            <filter-el></filter-el>
+            <img class="headerCart" src="images/cart.png" alt="">
+            <div class="cart">                 
+                <cart ref="cart"></cart>
+            </div>
+        </div>
+        </header>
+        <main>
+            <error ref="error"></error>  
+        </main>
+    
+    <!--
+    <header class="header">
+        <div class="container headerInside">
+            <div class="logo">
+                BRAN<span>D</span>
+            </div>
+            <form class="searchWrap">
+                <div class="searchBrowse">
+                    Browse <i class="fas fa-caret-down"></i>
+                </div>
+                <input placeholder="Search for Item..." type="text">
+                <button>
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <img class="headerCart" src="images/cart.png" alt="">
+            <button class="accountBtn">
+                My Account
+                <i class="fas fa-caret-down"></i>
+            </button>
+        </div>
+    </header>
+    -->
+    <nav class="topNav">
+        <a href="index.html">Home</a>
+        <a href="">Man</a>
+        <a href="">Women</a>
+        <a href="">Kids</a>
+        <a href="">Accoseriese</a>
+        <a href="">Featured</a>
+        <a href="">Hot Deals </a>
+    </nav>
+    <div class="breadcrumb">
+        <div class="container breadcrumbWrap">
+            <div class="arrivals">New Arrivals</div>
+            <nav class="navArrivals">
+                <a href="">Home&nbsp;/&nbsp;</a>
+                <a href="">Men&nbsp;/&nbsp;</a>
+                <a href="">New Arrivals</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container ProductsContainer">
+        <div class="leftProductsContainer">
+            <details class="productsMenu">
+                <summary>
+                    <span class="productsMenuToggler">Category</span>
+                </summary>
+                <div class="productsMenuUnits">
+                    <a href="#">Accessories</a>
+                    <a href="#">Bags</a>
+                    <a href="#">Denim</a>
+                    <a href="#">Hoodies & Sweatshirts</a>
+                    <a href="#">Jackets & Coats</a>
+                    <a href="#">Pants</a>
+                    <a href="#">Polos</a>
+                    <a href="#">Shirts</a>
+                    <a href="#">Shoes</a>
+                    <a href="#">Shorts</a>
+                    <a href="#">Sweaters & Knits</a>
+                    <a href="#">T-Shirts</a>
+                    <a href="#">Tanks</a>
+                </div>
+            </details>
+            <details class="productsMenu">
+                <summary>
+                    <span class="productsMenuToggler">Brand</span>
+                </summary>
+                <div class="productsMenuUnits">
+                    <a href="#">Mango</a>
+                    <a href="#">Lee</a>
+                    <a href="#">Calista</a>
+                </div>
+            </details>
+            <details class="productsMenu">
+                <summary>
+                    <span class="productsMenuToggler">DESIGNER</span>
+                </summary>
+                <div class="productsMenuUnits">
+                    <a href="#">Margo</a>
+                    <a href="#">Vitaly</a>
+                    <a href="#">Vasya</a>
+                </div>
+            </details>
+        </div>
+        <div class="rightProductsContainer">
+            <div class="productsParams">
+                <div class="productsParamsTrending">
+                    <div class="productsParamHead">Trending now</div>
+                    <div class="trendingParamsWrap">
+                        <span class="trendingParam">Bohemian</span>
+                        <span class="trendingDivider">|</span>
+                        <span class="trendingParam">Floral</span>
+                        <span class="trendingDivider">|</span>
+                        <span class="trendingParam">Lace</span>
+                        <span class="trendingParam">Floral</span>
+                        <span class="trendingDivider">|</span>
+                        <span class="trendingParam">Lace</span>
+                        <span class="trendingDivider">|</span>
+                        <span class="trendingParam">Bohemian</span>
+                    </div>
+                </div>
+                <div class="productsParamsSize">
+                    <div class="productsParamHead">Size</div>
+                    <div class="sizesWrap">
+                        <div>
+                            <input id="xxs" type="checkbox" name="size">
+                            <span class="productsCheckbox"></span>
+                            <label for="xxs">XXS</label>
+                        </div>
+                        <div>
+                            <input id="xs" type="checkbox" name="size">
+                            <span class="productsCheckbox"></span>
+                            <label for="xs">XS</label>
+                        </div>
+                        <div>
+                            <input id="s" type="checkbox" name="size">
+                            <span class="productsCheckbox"></span>
+                            <label for="s">S</label>
+                        </div>
+                        <div>
+                            <input id="m" type="checkbox" name="size">
+                            <span class="productsCheckbox"></span>
+                            <label for="m">M</label>
+                        </div>
+                        <div>
+                            <input id="l" type="checkbox" name="size">
+                            <span class="productsCheckbox"></span>
+                            <label for="l">L</label>
+                        </div>
+                        <div>
+                            <input id="xl" type="checkbox" name="size">
+                            <span class="productsCheckbox"></span>
+                            <label for="xl">XL</label>
+                        </div>
+                        <div>
+                            <input id="xxl" type="checkbox" name="size">
+                            <span class="productsCheckbox"></span>
+                            <label for="xxl">XXL</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="productsParamsPrice">
+                    <div class="productsParamHead">Price</div>
+                    <img src="images/priceRange.svg" alt="">
+                    <div class="priceRangeValues">
+                        <span>$52</span>
+                        <span>$400</span>
+                    </div>
+                </div>
+            </div>
+            <form class="sorter">
+                <div class="sorterUnit">
+                    <label for="sortBy">Sort By</label>
+                    <select name="" id="sortBy">
+                        <option value="">Name</option>
+                        <option value="">Price</option>
+                    </select>
+                </div>
+                <div class="sorterUnit">
+                    <label for="show">Show</label>
+                    <select name="" id="show">
+                        <option value="">09</option>
+                        <option value="">10</option>
+                    </select>
+                </div>
+            </form>
+            <products ref="products"></products>
+        
+            <div class="paginationWrap">
+                <div class="myPagination">
+                    <ul>
+                        <li><a class="textPagi" href="#">
+                                <</a> </li> <li><a class="textPagi" href="#">1</a></li>
+                        <li><a class="textPagi" href="#">2</a></li>
+                        <li><a class="textPagi" href="#">3</a></li>
+                        <li><a class="textPagi" href="#">4</a></li>
+                        <li><a class="textPagi" href="#">5</a></li>
+                        <li><a class="textPagi" href="#">6</a></li>
+                        <li><a class="textPagi" href="#">.....</a></li>
+                        <li><a class="textPagi" href="#">20</a></li>
+                        <li><a class="textPagi" href="#">></a></li>
+                    </ul>
+                </div>
+                <button>View All</button>
+            </div>
+        </div>
+    </div>
+    <div class="container benefits">
+        <div class="boxBenefits1">
+            <img src="images/box/box1.png" alt="">
+            <div class="benefitHeader">Free Delivery</div>
+            <div class="benefitText">
+                Worldwide delivery on all. Authorit
+                tively morph next-generation innov
+                tion with extensive models.
+            </div>
+        </div>
+        <div class="boxBenefits2">
+            <img src="images/box/box2.png" alt="">
+            <div class="benefitHeader">Sales & discounts</div>
+            <div class="benefitText">
+                Worldwide delivery on all. Authorit
+                tively morph next-generation innov
+                tion with extensive models.
+            </div>
+        </div>
+        <div class="boxBenefits3">
+            <img src="images/box/box3.png" alt="">
+            <div class="benefitHeader">Quality assurance</div>
+            <div class="benefitText">
+                Worldwide delivery on all. Authorit
+                tively morph next-generation innov
+                tion with extensive models.
+            </div>
+        </div>
+    </div>
+    <div class="subscribeWrap">
+        <div class="container subscribe">
+            <div class="reviews">
+                <div class="reviewUnit">
+                    <div class="reviewUnitLeft">
+                        <img src="images/reviewPerson.png" alt="">
+                    </div>
+                    <div class="reviewUnitRight">
+                        <blockquote>
+                            “Vestibulum quis porttitor dui! Quisque viverra nunc mi,
+                            a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”
+                        </blockquote>
+                        <div class="reviewName">
+                            Bin Burhan
+                        </div>
+                        <div class="reviewFrom">
+                            Dhaka, Bd
+                        </div>
+                        <div class="reviewsSwitch">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subscribeDivider"></div>
+            <div class="subscribeRight">
+                <div class="subscribeRightHead">
+                    Subscribe
+                </div>
+                <div class="subscribeRightText">
+                    FOR OUR NEWLETTER AND PROMOTION
+                </div>
+                <form class="subscribeForm" action="">
+                    <input placeholder="Enter Your Email" type="text">
+                    <button>Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class="container">
+        <div class="footerBrand">
+            <div class="logo">
+                BRAN<span>D</span>
+            </div>
+            <div class="footerBrandText1">
+                Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate
+                multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of
+                processes and cross-unit partnerships.
+            </div>
+            <div class="footerBrandText2">
+                Efficiently plagiarize 24/365 action items and focused infomediaries.
+                Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.
+            </div>
+        </div>
+        <div class="footerDivider"></div>
+        <section class="footerColumn">
+            <h2>COMPANY</h2>
+            <nav>
+                <a href="">Home</a>
+                <a href="">Shop</a>
+                <a href="">About</a>
+                <a href="">How It Works</a>
+                <a href="">Contact</a>
+            </nav>
+        </section>
+        <section class="footerColumn">
+            <h2>INFORMATION</h2>
+            <nav>
+                <a href="">Tearms & Condition</a>
+                <a href="">Privacy Policy</a>
+                <a href="">How to Buy</a>
+                <a href="">How to Sell</a>
+                <a href="">Promotion</a>
+            </nav>
+        </section>
+        <section class="footerColumn">
+            <h2>SHOP CATEGORY</h2>
+            <nav>
+                <a href="">Men</a>
+                <a href="">Women</a>
+                <a href="">Child</a>
+                <a href="">Apparel</a>
+                <a href="">Browse All</a>
+            </nav>
+        </section>
+    </footer>
+    <div class="copyrights">
+        <div class="container copyrightsWrap">
+            <div class="copyrightsLeft">
+                &copy; 2017 Brand All Rights Reserved.
+            </div>
+            <div class="copyrightsRight">
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                <a href=""><i class="fab fa-pinterest-p"></i></a>
+                <a href=""><i class="fab fa-google-plus-g"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/ProductComponent.js"></script>
+    <script src="js/CartComponent.js"></script>
+    <script src="js/FilterComp.js"></script>
+    <script src="js/ErrorComp.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
